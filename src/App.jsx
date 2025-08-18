@@ -10,6 +10,7 @@ import SignUp from './components/Auth/SignupForm'
 import LoginForm from './components/Auth/LoginForm'
 import LogoutButton from './components/Auth/LogoutButton'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import CafeDetails from './components/Cafe/CafeDetails'
 
 
 const App = () => {
@@ -40,10 +41,47 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/cafes"
             element={
+
               <ProtectedRoute>
                 <Cafe selected={selected} />
               </ProtectedRoute>
             } />
+          <Route path="/cafes/:id" element={<CafeDetails />} />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* drinks */}
+
+
+
+
+
+
+
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path='*' element={<h1>404: Page not found</h1>} />

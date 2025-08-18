@@ -28,7 +28,7 @@ const CafeForm = ({ selected, setCafes }) => {
         if (response.status === 200 || response.status === 201) {
 
         }
-        // response = await allCafes()
+        response = await allCafes()
         setCafes(response.data)
         setformDate(initalState)
 

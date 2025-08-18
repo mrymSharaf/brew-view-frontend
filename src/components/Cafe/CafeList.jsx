@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState ,useEffect, Link} from 'react'
+import { useState ,useEffect} from 'react'
+import {Link} from 'react-router'
 import axios from 'axios'
 import { allCafes } from '../../../lib/cafeApi'
 
@@ -16,7 +17,7 @@ const CafeList = ({cafes,setCafas}) => {
       <ul>
         {
           cafes.map(cafe => {
-            return <li key={cafe._id}>{cafe.cafeName}</li>
+            return <li key={cafe._id}><Link to={`/cafes/${cafe._id}`}>{cafe.cafeName}</Link></li>
           })
         }
       </ul>
