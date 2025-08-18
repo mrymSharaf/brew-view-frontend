@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createCafe, updateCafe, allCafes } from '../../../lib/cafeApi'
 
-const CafeForm = ({ selected, setCafes }) => {
+const CafeForm = ({ selected, setCafes, setIsFormShown }) => {
     const initalState = {
         cafeName: '',
         location: '',
@@ -26,7 +26,7 @@ const CafeForm = ({ selected, setCafes }) => {
         }
 
         if (response.status === 200 || response.status === 201) {
-
+            setIsFormShown(false)
         }
         response = await allCafes()
         setCafes(response.data)

@@ -34,11 +34,12 @@ const Cafe = (props) => {
                     ?
                     <CafeForm
                         selected={props.selected}
-                        setCafes={setCafes} />
+                        setCafes={setCafes}
+                        setIsFormShown={setIsFormShown}
+                    />
                     :
                     <CafeList
                         cafes={cafes}
-                        setCafes={setCafes}
                     />
 
 

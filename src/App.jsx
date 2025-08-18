@@ -46,7 +46,12 @@ const App = () => {
                 <Cafe selected={selected} />
               </ProtectedRoute>
             } />
-          <Route path="/cafes/:id" element={<CafeDetails />} />
+          <Route path="/cafes/:id"
+            element={
+              <ProtectedRoute>
+                <CafeDetails />
+              </ProtectedRoute>
+            } />
 
 
 
@@ -74,7 +79,6 @@ const App = () => {
 
 
 
-            {/* drinks */}
 
 
 
