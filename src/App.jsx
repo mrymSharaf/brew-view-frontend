@@ -45,6 +45,7 @@ const App = () => {
             } />
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path='*' element={<h1>404: Page not found</h1>} />
         </Routes>
       </div>
     </Router>
