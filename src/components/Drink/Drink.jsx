@@ -4,7 +4,7 @@ import DrinkForm from "./DrinkForm"
 import DrinkList from "./DrinkList"
 
 const Drink = () => {
-    const [Drinks, setDrinks] = useState([])
+    const [drinks, setDrinks] = useState([])
     const [isFormShown, setIsFormShown] = useState(false)
 
     const getAllDrinks = async () => {
@@ -24,6 +24,7 @@ const Drink = () => {
     return (
         <>
             <h1>Drinks</h1>
+            <button onClick={handleAddCafebtn}> {isFormShown ? "Back" : "Add Drink"}</button>
 
             {
                 isFormShown
@@ -34,8 +35,9 @@ const Drink = () => {
                     />
                     :
                     <>
-                        <button onClick={() => setIsFormShown(true)}> Add Drink</button>
-                        <DrinkList />
+                        <DrinkList
+                            drinks={drinks}
+                        />
                     </>
             }
 
