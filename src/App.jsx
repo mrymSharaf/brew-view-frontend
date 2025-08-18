@@ -7,8 +7,9 @@ import Footer from "./components/Footer/Footer"
 import Home from "./components/Home/Home"
 import Cafe from "./components/Cafe/Cafe"
 import SignUp from './components/Auth/SignupForm'
-import LoginForm from './components/Auth/LoginForm' 
+import LoginForm from './components/Auth/LoginForm'
 import LogoutButton from './components/Auth/LogoutButton'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 
 const App = () => {
@@ -36,7 +37,12 @@ const App = () => {
         <Footer />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cafes" element={<Cafe />} />
+          <Route path="/cafes"
+            element={
+              <ProtectedRoute>
+                <Cafe />
+              </ProtectedRoute>
+            } />
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
