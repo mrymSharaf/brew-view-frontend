@@ -1,14 +1,15 @@
 import { useState } from 'react'
-import { createCafe } from '../../../lib/cafeApi'
+import { createCafe, updateCafe, allCafes } from '../../../lib/cafeApi'
 
-const CafeForm = () => {
+const CafeForm = ({ selected, setCafes, setIsFormShown }) => {
     const initalState = {
         cafeName: '',
         location: '',
         cafeImage: ''
     }
 
-    const [formDate, setformDate] = useState(initalState)
+    const [formDate, setformDate] = useState(
+        selected ? selected : initalState)
 
     const handleChange = (event) => {
         setformDate({ ...formDate, [event.target.name]: event.target.value })
@@ -16,7 +17,21 @@ const CafeForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        const response = await createCafe(formDate)
+        let response = null
+        if (selected) {
+            response = await updateCafe(formDate, selected._id)
+        }
+        else {
+            response = await createCafe(formDate)
+        }
+
+        if (response.status === 200 || response.status === 201) {
+            setIsFormShown(false)
+        }
+        response = await allCafes()
+        setCafes(response.data)
+        setformDate(initalState)
+
 
     }
 
@@ -24,7 +39,7 @@ const CafeForm = () => {
     return (
         <>
             <h2>Cafe form</h2>
-            <form onSubmit={handleSubmit} enctype="multipart/form-data">
+            <form onSubmit={handleSubmit} >
                 <label>Cafe Name:</label>
                 <input
                     name='cafeName'
@@ -51,7 +66,9 @@ const CafeForm = () => {
 
                 />
 
-                <button type='submit'>Create</button>
+                <button type='submit'>
+                    {selected ? 'Update' : 'Create'}
+                </button>
             </form>
 
         </>

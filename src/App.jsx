@@ -10,11 +10,13 @@ import SignUp from './components/Auth/SignupForm'
 import LoginForm from './components/Auth/LoginForm'
 import LogoutButton from './components/Auth/LogoutButton'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import CafeDetails from './components/Cafe/CafeDetails'
 import Drink from './components/Drink/Drink'
 
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
+  const [selected, setSelected] = useState(null)
 
   function handleLogin(newToken) {
     setToken(newToken)
@@ -27,7 +29,7 @@ const App = () => {
 
   if (token) {
     const decodedToken = jwtDecode(token)
-    console.log(decodedToken)
+    // console.log(decodedToken)
   }
 
   return (
@@ -40,8 +42,15 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/cafes"
             element={
+
               <ProtectedRoute>
-                <Cafe />
+                <Cafe selected={selected} />
+              </ProtectedRoute>
+            } />
+          <Route path="/cafes/:id"
+            element={
+              <ProtectedRoute>
+                <CafeDetails />
               </ProtectedRoute>
             } />
 
@@ -71,18 +80,12 @@ const App = () => {
 
 
 
-          {/* //drinks */}
 
 
 
 
 
-          <Route path='/drinks'
-            element=
-            {<ProtectedRoute>
-              <Drink />
-            </ProtectedRoute>
-            } />
+
 
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp />} />
