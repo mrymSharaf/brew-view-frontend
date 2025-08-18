@@ -2,6 +2,8 @@ import { cafeDetials } from '../../../lib/cafeApi'
 import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
 import CafeDeleteBtn from './CafeDeleteBtn'
+import ReviewForm from '../Review/ReviewForm'
+import ReviewList from '../Review/ReviewList'
 
 const CafeDetails = () => {
     const params = useParams()
@@ -11,6 +13,7 @@ const CafeDetails = () => {
 
         const foundCafe = await cafeDetials(params.id)
         setCafe(foundCafe.data)
+        console.log(foundCafe.data)
     }
     useEffect(() => {
         getCafe()
@@ -34,6 +37,8 @@ const CafeDetails = () => {
                     <p>louding</p>
 
             }
+            <ReviewList />
+            <ReviewForm type='cafe' item={cafe} />
 
         </>
     )
