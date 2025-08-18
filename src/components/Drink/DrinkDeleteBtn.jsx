@@ -1,10 +1,19 @@
-
+import { deleteDrink } from '../../../lib/drinkApi'
+import { useNavigate, useParams } from "react-router"
 
 const DrinkDeleteBtn = () => {
-    return (
-        <>
+      const params = useParams()
+    const id = params.id
 
-        </>
+    const navigate = useNavigate()
+    const handleDelete = async () => {
+        await deleteDrink(id)
+        navigate('/drinks')
+
+    }
+
+    return (
+        <button onClick={handleDelete}>Delete</button>
     )
 }
 

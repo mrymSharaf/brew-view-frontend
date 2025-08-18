@@ -11,6 +11,8 @@ import LoginForm from './components/Auth/LoginForm'
 import LogoutButton from './components/Auth/LogoutButton'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import CafeDetails from './components/Cafe/CafeDetails'
+import Drink from './components/Drink/Drink'
+import DrinkDetails from './components/Drink/DrinkDetails'
 
 
 const App = () => {
@@ -82,9 +84,19 @@ const App = () => {
 
 
 
+          <Route path='/drinks'
+            element=
+            {<ProtectedRoute>
+              <Drink selected={selected} />
+            </ProtectedRoute>
+            } />
 
-
-
+          <Route path="/drinks/:id"
+            element={
+              <ProtectedRoute>
+                <DrinkDetails />
+              </ProtectedRoute>
+            } />
 
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp />} />
