@@ -14,6 +14,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
+  const [selected, setSelected] = useState(null)
 
   function handleLogin(newToken) {
     setToken(newToken)
@@ -26,7 +27,7 @@ const App = () => {
 
   if (token) {
     const decodedToken = jwtDecode(token)
-    console.log(decodedToken)
+    // console.log(decodedToken)
   }
 
   return (
@@ -40,7 +41,7 @@ const App = () => {
           <Route path="/cafes"
             element={
               <ProtectedRoute>
-                <Cafe />
+                <Cafe selected={selected} />
               </ProtectedRoute>
             } />
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />

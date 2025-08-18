@@ -1,28 +1,13 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState ,useEffect, Link} from 'react'
+import axios from 'axios'
+import { allCafes } from '../../../lib/cafeApi'
 
-const CafeList = () => {
+const CafeList = ({cafes,setCafas}) => {
 
-  const [cafes, setCafes] = useState(null)
   const [errors, setErrors] = useState('')
 
-  async function fetchData() {
-    const token = localStorage.getItem('token')
-    if (!token) return
 
-    try {
-      const res = await axios.get('http://localhost:3000/cafes', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      setCafes(res.data)
-    } catch (err) {
-      setErrors('Unauthorized or error fetching data')
-    }
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   if (!cafes) return <p>No data yet (login first)</p>
   return (
@@ -31,7 +16,7 @@ const CafeList = () => {
       <ul>
         {
           cafes.map(cafe => {
-            return <li>{cafe.name}</li>
+            return <li key={cafe._id}>{cafe.cafeName}</li>
           })
         }
       </ul>
