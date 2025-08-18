@@ -7,7 +7,7 @@ const Cafe = () => {
         <>
             <h1>Cafes</h1>
             <CafeForm/>
-            <CafeList />
+            {/* <CafeList /> */}
 
 
         </>

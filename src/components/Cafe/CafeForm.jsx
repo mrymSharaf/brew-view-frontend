@@ -33,7 +33,7 @@ const CafeForm = () => {
                     onChange={handleChange}
 
                 />
-                <label>Locatin:</label>
+                <label>Location:</label>
                 <input
                     name='location'
                     id='location'
