@@ -83,9 +83,12 @@ const App = () => {
 
 
 
-
-
-
+          <Route path='/drinks'
+            element=
+            {<ProtectedRoute>
+              <Drink />
+            </ProtectedRoute>
+            } />
 
           <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
           <Route path="/signup" element={<SignUp />} />

@@ -1,17 +1,18 @@
-import { createDrink, updateDrink } from '../../../lib/drinkApi'
+import { createDrink, updateDrink, allDrinks } from '../../../lib/drinkApi'
 import { useState } from 'react'
 import axios from 'axios'
 
-const DrinkForm = ({ setIsFormShown }) => {
-
-    const [isSubmitting, setIsSubmitting] = useState(false)
-    const [formData, setFormData] = useState({
+const DrinkForm = ({ selected, setDrinks, setIsFormShown }) => {
+    const initialState = {
         drinkName: '',
-        drinkImage: null,
+        drinkImage: '',
         price: '',
         description: ''
-    })
+    }
 
+    const [formData, setFormData] = useState(
+        selected ? selected : initialState
+    )
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
@@ -19,30 +20,21 @@ const DrinkForm = ({ setIsFormShown }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        let response = null
 
-        if (isSubmitting) return
-        setIsSubmitting(true)
-
-        const drinkId = formData._id
-        const data = {
-            drinkName: formData.drinkName,
-            drinkImage: formData.drinkImage,
-            price: formData.price,
-            description: formData.description,
-        }
-
-        let response
-        if (drinkId) {
-            response = await updateDrink(drinkId, data)
+        if (selected) {
+            response = await updateDrink(selected._id, formData)
         } else {
-            response = await createDrink(data)
+            response = await createDrink(formData)
         }
 
-
-        if ((drinkId && response.status === 200) || (!drinkId && response.status === 201)) {
+        if (response.status === 200 || response.status === 201) {
             setIsFormShown(false)
         }
 
+        response = await allDrinks()
+        setDrinks(response.data)
+        setFormData(initialState)
     }
 
 
@@ -52,7 +44,7 @@ const DrinkForm = ({ setIsFormShown }) => {
             <div>
                 <form onSubmit={handleSubmit}>
 
-                    <h1>{formData._id ? 'Edit Drink' : 'Add Drin'}</h1>
+                    <h1>{formData._id ? 'Edit Drink' : 'Add Drink'}</h1>
 
                     <label htmlFor='drinkName'>Drink Name</label>
                     <input
@@ -87,7 +79,7 @@ const DrinkForm = ({ setIsFormShown }) => {
                         name='description'
                     />
 
-                    <button type="submit"> {formData._id ? 'Save' : 'Add Drink'}</button>
+                    <button type="submit"> {formData._id ? 'Save' : 'Create'}</button>
 
                 </form>
             </div>
