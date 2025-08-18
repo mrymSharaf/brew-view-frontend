@@ -1,43 +1,27 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router'
+import axios from 'axios'
+import { allCafes } from '../../../lib/cafeApi'
 
-const CafeList = () => {
+const CafeList = ({ cafes }) => {
 
-  const [cafes, setCafes] = useState(null)
-  const [errors, setErrors] = useState('')
+    const [errors, setErrors] = useState('')
 
-  async function fetchData() {
-    const token = localStorage.getItem('token')
-    if (!token) return
-
-    try {
-      const res = await axios.get('http://localhost:3000/cafes', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      setCafes(res.data)
-    } catch (err) {
-      setErrors('Unauthorized or error fetching data')
-    }
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
-
-  if (!cafes) return <p>No data yet (login first)</p>
-  return (
-    <>
-      <h2>All Cafes</h2>
-      <ul>
-        {
-          cafes.map(cafe => {
-            return <li>{cafe.name}</li>
-          })
-        }
-      </ul>
-      <p style={{ color: 'darkred' }}>{errors}</p>
-    </>
-  )
+    if (!cafes) return <p>No data yet (login first)</p>
+    return (
+        <>
+            <h2>All Cafes</h2>
+            <ul>
+                {
+                    cafes.map(cafe => {
+                        return <li key={cafe._id}><Link to={`/cafes/${cafe._id}`}>{cafe.cafeName}</Link></li>
+                    })
+                }
+            </ul>
+            <p style={{ color: 'darkred' }}>{errors}</p>
+        </>
+    )
 }
 
 export default CafeList
