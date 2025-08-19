@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router'
 import CafeReviewDeleteBtn from './CafeReviewDeleteBtn'
 
-const ReviewList = ({ reviews, getCafeReviews }) => {
+const CafeReviewList = ({ reviews, getCafeReviews }) => {
     const params = useParams()
 
     const foundReviews = reviews.filter(review => {
@@ -41,4 +41,4 @@ const ReviewList = ({ reviews, getCafeReviews }) => {
     )
 }
 
-export default ReviewList
+export default CafeReviewList

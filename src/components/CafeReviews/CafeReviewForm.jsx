@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { createReview } from '../../../lib/reviewApi'
 import { useParams } from 'react-router'
-const ReviewForm = ({ setReviews, getCafeReviews }) => {
+
+const CafeReviewForm = ({ setReviews, getCafeReviews }) => {
 
     const initalState = {
         content: '',
@@ -59,4 +60,4 @@ const ReviewForm = ({ setReviews, getCafeReviews }) => {
     )
 }
 
-export default ReviewForm
+export default CafeReviewForm

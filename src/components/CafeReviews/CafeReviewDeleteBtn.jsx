@@ -1,7 +1,7 @@
 import { deleteReview } from "../../../lib/reviewApi"
 import { useNavigate, useParams } from "react-router"
 
-const ReviewDeleteBtn = ({reviewId,getCafeReviews}) => {
+const CafeReviewDeleteBtn = ({reviewId,getCafeReviews}) => {
 
     const navigate = useNavigate()
     const params = useParams()
@@ -16,4 +16,4 @@ const ReviewDeleteBtn = ({reviewId,getCafeReviews}) => {
     )
 }
 
-export default ReviewDeleteBtn
+export default CafeReviewDeleteBtn
