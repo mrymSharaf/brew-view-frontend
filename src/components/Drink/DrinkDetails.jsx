@@ -4,11 +4,15 @@ import { drinkDetials } from '../../../lib/drinkApi'
 import { ScaleLoader } from 'react-spinners'
 import DrinkDeleteBtn from './DrinkDeleteBtn'
 import DrinkForm from './DrinkForm'
+import DrinkReviewForm from '../DrinkReviews/DrinkReviewForm'
+import { allReviews } from '../../../lib/reviewApi'
+import DrinkReviewList from '../DrinkReviews/DrinkReviewList'
 
 const DrinkDetails = () => {
     const { id } = useParams()
     const [drink, setDrink] = useState(null)
     const [isFormShown, setIsFormShown] = useState(false)
+    const [reviews, setReviews] = useState([])
 
     const getDrink = async () => {
         try {
@@ -19,9 +23,14 @@ const DrinkDetails = () => {
             console.error('Error getting drink:', error)
         }
     }
+    const getDrinkReviews = async () => {
+        const reviews = await allReviews()
+        setReviews(reviews.data)
+    }
 
     useEffect(() => {
         getDrink()
+        getDrinkReviews()
     }, [id])
 
     return (
@@ -62,6 +71,15 @@ const DrinkDetails = () => {
                     )
                     : <p>Loading...</p>
             }
+            <DrinkReviewList 
+            getDrinkReviews={getDrinkReviews}
+            reviews={reviews}
+            />
+
+            <DrinkReviewForm
+            getDrinkReviews={getDrinkReviews}
+             />
+             
         </>
     )
 }
