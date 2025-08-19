@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createCafe, updateCafe, allCafes } from '../../../lib/cafeApi'
 
-const CafeForm = ({ selected, setCafes, setIsFormShown }) => {
+const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
     const initalState = {
         cafeName: '',
         location: '',
@@ -9,7 +9,7 @@ const CafeForm = ({ selected, setCafes, setIsFormShown }) => {
     }
 
     const [formDate, setformDate] = useState(
-        selected ? selected : initalState)
+        selectedCafe ? selectedCafe : initalState)
 
     const handleChange = (event) => {
         setformDate({ ...formDate, [event.target.name]: event.target.value })
@@ -18,8 +18,8 @@ const CafeForm = ({ selected, setCafes, setIsFormShown }) => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         let response = null
-        if (selected) {
-            response = await updateCafe(formDate, selected._id)
+        if (selectedCafe) {
+            response = await updateCafe(formDate, selectedCafe._id)
         }
         else {
             response = await createCafe(formDate)
@@ -67,7 +67,7 @@ const CafeForm = ({ selected, setCafes, setIsFormShown }) => {
                 />
 
                 <button type='submit'>
-                    {selected ? 'Update' : 'Create'}
+                    {selectedCafe ? 'Update' : 'Create'}
                 </button>
             </form>
 

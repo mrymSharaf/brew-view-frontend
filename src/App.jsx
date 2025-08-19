@@ -17,7 +17,8 @@ import DrinkDetails from './components/Drink/DrinkDetails'
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'))
-  const [selected, setSelected] = useState(null)
+  const [selectedCafe, setSelectedCafe] = useState(null)
+  const [selectedDrink, setSelectedDrink] = useState(null)
 
   function handleLogin(newToken) {
     setToken(newToken)
@@ -45,7 +46,7 @@ const App = () => {
             element={
 
               <ProtectedRoute>
-                <Cafe selected={selected} />
+                <Cafe selectedCafe={selectedCafe} />
               </ProtectedRoute>
             } />
           <Route path="/cafes/:id"
@@ -87,7 +88,7 @@ const App = () => {
           <Route path='/drinks'
             element=
             {<ProtectedRoute>
-              <Drink selected={selected} />
+              <Drink selectedDrink={selectedDrink} />
             </ProtectedRoute>
             } />
 
