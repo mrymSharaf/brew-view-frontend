@@ -34,7 +34,7 @@ const DrinkDetails = () => {
                                     ?
                                     (
                                         <DrinkForm
-                                            selected={drink}
+                                            selectedDrink={drink}
                                             setDrinks={getDrink}
                                             setIsFormShown={setIsFormShown}
                                         />

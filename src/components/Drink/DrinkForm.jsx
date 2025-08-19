@@ -2,7 +2,7 @@ import { createDrink, updateDrink, allDrinks } from '../../../lib/drinkApi'
 import { useState } from 'react'
 import axios from 'axios'
 
-const DrinkForm = ({ selected, setDrinks, setIsFormShown }) => {
+const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     const initialState = {
         drinkName: '',
         drinkImage: '',
@@ -11,7 +11,7 @@ const DrinkForm = ({ selected, setDrinks, setIsFormShown }) => {
     }
 
     const [formData, setFormData] = useState(
-        selected ? selected : initialState
+        selectedDrink ? selectedDrink : initialState
     )
 
     const handleChange = (event) => {
@@ -22,9 +22,9 @@ const DrinkForm = ({ selected, setDrinks, setIsFormShown }) => {
         event.preventDefault()
         let response = null
 
-        if (selected) {
+        if (selectedDrink) {
             response = await updateDrink
-            (selected._id, formData)
+            (selectedDrink._id, formData)
         } else {
             response = await createDrink(formData)
         }
