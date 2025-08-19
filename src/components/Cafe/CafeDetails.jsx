@@ -22,7 +22,7 @@ const CafeDetails = () => {
 
     const getAllReviews = async () => {
         const reviews = await allReviews()
-        setReviews(foundCafe.data.cafeReviews)
+        setReviews(reviews.data.cafeReviews)
     }
     useEffect(() => {
         getCafe()
