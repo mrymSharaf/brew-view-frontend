@@ -2,9 +2,7 @@
 
 const ReviewDeleteBtn = () => {
     return (
-        <>
-
-        </>
+        <button>Delete</button>
     )
 }
 
