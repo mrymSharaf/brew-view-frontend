@@ -53,8 +53,8 @@ const CafeDetails = () => {
                                     (
                                         <>
                                             <h1>{cafe.cafeName}</h1>
+                                            <img src={cafe.cafeImage} alt={cafe.cafeName} />
                                             <p>{cafe.location}</p>
-                                            {/* <img src={cafe.cafeImage} alt={cafe.cafeName} /> */}
 
                                             <button onClick={() => setIsFormShown(true)}>
                                                 Edit

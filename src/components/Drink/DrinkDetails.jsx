@@ -56,6 +56,7 @@ const DrinkDetails = () => {
 
                                         <>
                                             <h1>{drink.drinkName}</h1>
+                                            <img src={drink.drinkImage} alt={drink.drinkName} />
                                             <p>{drink.description}</p>
                                             <p>{drink.price} BHD</p>
 

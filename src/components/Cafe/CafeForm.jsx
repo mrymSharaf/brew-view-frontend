@@ -5,24 +5,36 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
     const initalState = {
         cafeName: '',
         location: '',
-        cafeImage: ''
+        cafeImage: null
     }
 
-    const [formDate, setformDate] = useState(
+    const [formData, setFormData] = useState(
         selectedCafe ? selectedCafe : initalState)
 
     const handleChange = (event) => {
-        setformDate({ ...formDate, [event.target.name]: event.target.value })
+        setFormData({ ...formData, [event.target.name]: event.target.value })
+    }
+
+    const handleFileChange = (event) => {
+        setFormData({ ...formData, cafeImage: event.target.files[0] })
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+
+        const data = new FormData()
+        data.append('cafeName', formData.cafeName)
+        data.append('location', formData.location)
+        if (formData.cafeImage) {
+            data.append('cafeImage', formData.cafeImage)
+        }
+
         let response = null
         if (selectedCafe) {
-            response = await updateCafe(formDate, selectedCafe._id)
+            response = await updateCafe(data, selectedCafe._id)
         }
         else {
-            response = await createCafe(formDate)
+            response = await createCafe(data)
         }
 
         if (response.status === 200 || response.status === 201) {
@@ -30,7 +42,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
         }
         response = await allCafes()
         setCafes(response.data)
-        setformDate(initalState)
+        setFormData(initalState)
 
 
     }
@@ -44,7 +56,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
                 <input
                     name='cafeName'
                     id='cafeName'
-                    value={formDate.cafeName}
+                    value={formData.cafeName}
                     onChange={handleChange}
 
                 />
@@ -52,7 +64,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
                 <input
                     name='location'
                     id='location'
-                    value={formDate.location}
+                    value={formData.location}
                     onChange={handleChange}
 
                 />
@@ -60,10 +72,9 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
                 <input
                     name='cafeImage'
                     id='cafeImage'
-                    value={formDate.cafeImage}
-                    onChange={handleChange}
+                    onChange={handleFileChange}
                     type='file'
-
+                    accept="image/*"
                 />
 
                 <button type='submit'>
