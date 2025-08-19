@@ -23,8 +23,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
         let response = null
 
         if (selectedDrink) {
-            response = await updateDrink
-            (selectedDrink._id, formData)
+            response = await updateDrink(formData, selectedDrink._id)
         } else {
             response = await createDrink(formData)
         }
