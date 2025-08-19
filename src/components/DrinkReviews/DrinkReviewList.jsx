@@ -15,7 +15,7 @@ const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
             <ul>
 
                 {
-                    foundReviews
+                    foundReviews.length
                         ?
                         <>
                             {
