@@ -13,7 +13,8 @@ const DrinkDetails = () => {
     const getDrink = async () => {
         try {
             const foundDrink = await drinkDetials(id)
-            setDrink(foundDrink.data)
+            console.log(foundDrink.data)
+            setDrink(foundDrink.data.drinkDetails) 
         } catch (error) {
             console.error('Error getting drink:', error)
         }
@@ -34,7 +35,7 @@ const DrinkDetails = () => {
                                     ?
                                     (
                                         <DrinkForm
-                                            selected={drink}
+                                            selectedDrink={drink}
                                             setDrinks={getDrink}
                                             setIsFormShown={setIsFormShown}
                                         />
