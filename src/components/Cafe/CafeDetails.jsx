@@ -2,8 +2,8 @@ import { cafeDetials } from '../../../lib/cafeApi'
 import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
 import CafeDeleteBtn from './CafeDeleteBtn'
-import ReviewForm from '../Review/ReviewForm'
-import ReviewList from '../Review/ReviewList'
+import CafeReviewForm from '../Review/CafeReviewForm'
+import CafeReviewList from '../Review/CafeReviewList'
 import { allReviews } from '../../../lib/reviewApi'
 import CafeForm from './CafeForm'
 
@@ -20,13 +20,13 @@ const CafeDetails = () => {
 
     }
 
-    const getAllReviews = async () => {
+    const getCafeReviews = async () => {
         const reviews = await allReviews()
-        setReviews(foundCafe.data.cafeReviews)
+        setReviews(reviews.data)
     }
     useEffect(() => {
         getCafe()
-        getAllReviews()
+        getCafeReviews()
 
     }, [])
 
@@ -64,14 +64,12 @@ const CafeDetails = () => {
                                     )
                             }
 
-                            <ReviewList
-                                reviews={reviews}
-                                type='cafe'
-                                item={cafe}
+                            <CafeReviewList
+                            reviews={reviews}
+                            getCafeReviews={getCafeReviews}
                             />
-                            <ReviewForm
-                                type='cafe'
-                                item={cafe}
+                            <CafeReviewForm
+                            getCafeReviews={getCafeReviews}
                             />
                         </>
                     )
