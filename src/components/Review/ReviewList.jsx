@@ -4,35 +4,41 @@ import { cafeDetials } from '../../../lib/cafeApi'
 import {useState, useEffect} from 'react'
 import { drinkDetials } from '../../../lib/drinkApi'
 import ReviewDeleteBtn from './ReviewDeleteBtn'
+import ReviewForm from './ReviewForm'
 
-const ReviewList = ({ type }) => {
-    const [reviews, setReviews] =useState([])
+const ReviewList = ({ type, reviews, getCafeReviews }) => {
+    // const [reviews, setReviews] =useState([])
     const params = useParams()
-    if (type === 'cafe') {
+    //   const getCafeReviews = async () => {
+    //         const foundReviews = await cafeDetials(params.id)
+    //         console.log('cafe reviews',foundReviews.data.cafeReviews)
+    //         setReviews(foundReviews.data.cafeReviews)
+
+    //     }
+
+    //       const getDrinkreviews = async () =>{
+    //         const foundReviews = await drinkDetials(params.id)
+    //         console.log(params)
+    //         console.log('drink reviews',foundReviews.data.cafeReviews)
+    //         setReviews(foundReviews.data.cafeReviews)
+    //     }
+    // if (type === 'cafe') {
        
-        const getCafeReviews = async () => {
-            const foundReviews = await cafeDetials(params.id)
-            console.log(foundReviews.data.cafeReviews)
-            setReviews(foundReviews.data.cafeReviews)
+      
 
-        }
-
-        useEffect( () => {
-            getCafeReviews()
-        },[])
+    //     useEffect( () => {
+    //         getCafeReviews()
+    //     },[])
 
 
-    }else if(type === 'drink'){
-        const getDrinkreviews = async () =>{
-            const foundReviews = await drinkDetials(params.id)
-            setReviews(foundReviews.data.cafeReviews)
-        }
-        useEffect( () => {
-            getDrinkreviews()
-        },[])
+    // }else if(type === 'drink'){
+      
+    //     useEffect( () => {
+    //         getDrinkreviews()
+    //     },[])
         
-    }
-
+    // }
+    // console.log(reviews)
 
     return (
         <>
@@ -40,7 +46,7 @@ const ReviewList = ({ type }) => {
             <ul>
 
             {
-                reviews.length
+                reviews
                 ?
                 <>
                 
@@ -50,12 +56,16 @@ const ReviewList = ({ type }) => {
                         <li key={review._id}>
                             <p>{review.content}</p>
                             <p>{review.rating}</p>
-                            <ReviewDeleteBtn />
+                            <ReviewDeleteBtn 
+                            reviewId={review._id}
+                            getCafeReviews={getCafeReviews}
+                             />
                         </li>
                     ) 
 
                     })
                 }
+          
                 </>
                 :
                 <p>No reviews yet</p>

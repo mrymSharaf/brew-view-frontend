@@ -22,7 +22,8 @@ const CafeDetails = () => {
 
     const getAllReviews = async () => {
         const reviews = await allReviews()
-        setReviews(foundCafe.data.cafeReviews)
+        console.log("All Reviews updated: ",reviews.data)
+        setReviews(reviews.data)
     }
     useEffect(() => {
         getCafe()
@@ -65,13 +66,13 @@ const CafeDetails = () => {
                             }
 
                             <ReviewList
-                                reviews={reviews}
                                 type='cafe'
-                                item={cafe}
+                                reviews={reviews}
                             />
                             <ReviewForm
                                 type='cafe'
                                 item={cafe}
+                                getAllReviews= {getAllReviews}
                             />
                         </>
                     )

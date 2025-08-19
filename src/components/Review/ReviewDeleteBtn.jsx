@@ -1,14 +1,16 @@
 import { useParams, useNavigate } from "react-router"
-import { deleteReview } from "../../../lib/reviewApi"
+import { deleteReview ,allReviews} from "../../../lib/reviewApi"
 
-const ReviewDeleteBtn = () => {
-    const params = useParams()
-    const id = params.id
+
+const ReviewDeleteBtn = ({reviewId, getCafeReviews, getDrinkreviews}) => {
+
 
     const navigate = useNavigate()
     const handleDelete = async () => {
-        await deleteCafe(id)
-        navigate('/cafes')
+        await deleteReview(reviewId)
+        await getCafeReviews()
+        await getDrinkreviews()
+        navigate('/')
 
     }
     return (
