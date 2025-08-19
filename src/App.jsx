@@ -88,7 +88,10 @@ const App = () => {
           <Route path='/drinks'
             element=
             {<ProtectedRoute>
-              <Drink selectedDrink={selectedDrink} />
+              <Drink
+                selectedDrink={selectedDrink}
+                setSelectedDrink={setSelectedDrink}
+              />
             </ProtectedRoute>
             } />
 

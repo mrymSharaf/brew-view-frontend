@@ -3,7 +3,7 @@ import { allDrinks } from '../../../lib/drinkApi'
 import DrinkForm from "./DrinkForm"
 import DrinkList from "./DrinkList"
 
-const Drink = () => {
+const Drink = ({ selectedDrink, setSelectedDrink }) => {
     const [drinks, setDrinks] = useState([])
     const [isFormShown, setIsFormShown] = useState(false)
 
@@ -20,6 +20,12 @@ const Drink = () => {
     const handleAddCafebtn = () => {
         setIsFormShown(!isFormShown)
     }
+
+    // function handleEditDrink(drink) {
+    //     setSelectedDrink(drink)
+    //     setIsFormShown(true)
+    // }
+
 
     return (
         <>
