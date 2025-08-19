@@ -18,8 +18,21 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
     }
 
+    const handleFileChange = (event) => {
+        setFormData({ ...formData, cafeImage: event.target.files[0] })
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault()
+
+        const data = new FormData()
+        data.append("drinkName", formData.drinkName)
+        data.append("price", formData.price)
+        data.append("description", formData.description)
+        if (formData.drinkImage) {
+            data.append("drinkImage", formData.drinkImage)
+        }
+
         let response = null
 
         if (selectedDrink) {
@@ -56,11 +69,11 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
 
                     <label htmlFor='drinkImage'>Picture</label>
                     <input
-                        value={formData.drinkImage}
-                        onChange={handleChange}
+                        onChange={handleFileChange}
                         id='drinkImage'
                         name='drinkImage'
                         type='file'
+                        accept="image/*"
                     />
 
                     <label htmlFor='price'>Price</label>

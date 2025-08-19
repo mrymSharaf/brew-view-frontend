@@ -74,7 +74,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
                     id='cafeImage'
                     onChange={handleFileChange}
                     type='file'
-
+                    accept="image/*"
                 />
 
                 <button type='submit'>
