@@ -6,6 +6,7 @@ import DrinkDeleteBtn from './DrinkDeleteBtn'
 import DrinkForm from './DrinkForm'
 import DrinkReviewForm from '../DrinkReviews/DrinkReviewForm'
 import { allReviews } from '../../../lib/reviewApi'
+import DrinkReviewList from '../DrinkReviews/DrinkReviewList'
 
 const DrinkDetails = () => {
     const { id } = useParams()
@@ -70,9 +71,15 @@ const DrinkDetails = () => {
                     )
                     : <p>Loading...</p>
             }
+            <DrinkReviewList 
+            getDrinkReviews={getDrinkReviews}
+            reviews={reviews}
+            />
+
             <DrinkReviewForm
             getDrinkReviews={getDrinkReviews}
              />
+             
         </>
     )
 }
