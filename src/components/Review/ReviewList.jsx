@@ -2,6 +2,8 @@ import React from 'react'
 import { useParams } from 'react-router'
 import { cafeDetials } from '../../../lib/cafeApi'
 import {useState, useEffect} from 'react'
+import { drinkDetials } from '../../../lib/drinkApi'
+import ReviewDeleteBtn from './ReviewDeleteBtn'
 
 const ReviewList = ({ type }) => {
     const [reviews, setReviews] =useState([])
@@ -21,6 +23,13 @@ const ReviewList = ({ type }) => {
 
 
     }else if(type === 'drink'){
+        const getDrinkreviews = async () =>{
+            const foundReviews = await drinkDetials(params.id)
+            setReviews(foundReviews.data.cafeReviews)
+        }
+        useEffect( () => {
+            getDrinkreviews()
+        },[])
         
     }
 
@@ -41,6 +50,7 @@ const ReviewList = ({ type }) => {
                         <li key={review._id}>
                             <p>{review.content}</p>
                             <p>{review.rating}</p>
+                            <ReviewDeleteBtn />
                         </li>
                     ) 
 
