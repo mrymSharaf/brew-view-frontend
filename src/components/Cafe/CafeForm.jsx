@@ -5,7 +5,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
     const initalState = {
         cafeName: '',
         location: '',
-        cafeImage: ''
+        cafeImage: null
     }
 
     const [formDate, setformDate] = useState(
