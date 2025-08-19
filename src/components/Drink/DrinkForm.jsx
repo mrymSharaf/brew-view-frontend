@@ -19,7 +19,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     }
 
     const handleFileChange = (event) => {
-        setFormData({ ...formData, cafeImage: event.target.files[0] })
+        setFormData({ ...formData, drinkImage: event.target.files[0] })
     }
 
     const handleSubmit = async (event) => {
