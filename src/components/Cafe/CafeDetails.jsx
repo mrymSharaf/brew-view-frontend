@@ -64,7 +64,9 @@ const CafeDetails = () => {
                                         </>
                                     )
                             }
-                            <Drink />
+                            <Drink 
+                            cafeId={cafe._id}
+                            />
 
                             <CafeReviewList
                             reviews={reviews}

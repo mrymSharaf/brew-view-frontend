@@ -2,12 +2,24 @@ import { useEffect, useState } from 'react'
 import CafeForm from './CafeForm'
 import CafeList from './CafeList'
 import { allCafes } from '../../../lib/cafeApi'
+import  {jwtDecode}  from 'jwt-decode'
 
 
 const Cafe = (props) => {
 
     const [cafes, setCafes] = useState([])
     const [isFormShown, setIsFormShown] = useState(false)
+
+    let user = null;
+    const token = localStorage.getItem("token");
+    if (token) {
+        try {
+            user = jwtDecode(token);
+        } catch (e) {
+            user = null;
+        }
+    }
+
 
     const getAllCafes = async () => {
         const response = await allCafes()
@@ -28,7 +40,9 @@ const Cafe = (props) => {
     return (
         <>
             <h1>Cafes</h1>
-            <button onClick={handleAddCafebtn}>Add Cafe</button>
+            {user.role === 'cafe' && (
+                <button onClick={handleAddCafebtn}>Add Cafe</button>
+            )}
             {
                 isFormShown
                     ?
