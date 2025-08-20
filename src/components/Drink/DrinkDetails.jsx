@@ -8,6 +8,8 @@ import DrinkReviewForm from '../DrinkReviews/DrinkReviewForm'
 import { allReviews } from '../../../lib/reviewApi'
 import DrinkReviewList from '../DrinkReviews/DrinkReviewList'
 import { jwtDecode } from 'jwt-decode'
+import NavBar from "../NavBar/NavBar"
+import Footer from "../Footer/Footer"
 
 const DrinkDetails = () => {
     const { id } = useParams()
@@ -43,6 +45,7 @@ const DrinkDetails = () => {
 
     return (
         <>
+        <NavBar/>
             {
                 drink
                     ? (
@@ -92,6 +95,7 @@ const DrinkDetails = () => {
                 getDrinkReviews={getDrinkReviews}
             />
 
+            <Footer/>
         </>
     )
 }

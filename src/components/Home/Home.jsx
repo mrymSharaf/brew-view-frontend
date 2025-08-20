@@ -1,6 +1,8 @@
 import { jwtDecode } from "jwt-decode"
 import { useEffect, useState } from "react"
 import { allReviews } from "../../../lib/reviewApi"
+import NavBar from "../NavBar/NavBar"
+import Footer from "../Footer/Footer"
 
 const Home = () => {
   const [reviews, setReviews] = useState([])
@@ -28,6 +30,7 @@ const Home = () => {
 
   return (
     <>
+      <NavBar />
       <h1>Welcome To Brewviews</h1>
       <h3>Your Reviews</h3>
       {foundReviews.length ? (
@@ -42,6 +45,7 @@ const Home = () => {
       ) : (
         <p>You haven't written any reviews</p>
       )}
+      <Footer/>
     </>
   )
 }

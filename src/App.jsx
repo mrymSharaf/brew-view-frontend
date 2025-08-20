@@ -1,8 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router"
-import NavBar from "./components/NavBar/NavBar"
-import Footer from "./components/Footer/Footer"
 import Home from "./components/Home/Home"
 import Cafe from "./components/Cafe/Cafe"
 import SignUp from './components/Auth/SignupForm'
@@ -35,10 +33,9 @@ const App = () => {
   return (
     <Router>
       <div>
-        <NavBar /> 
         <Routes>
 
-          <Route path="/login" element={<LoginForm onLogin={() => {}} />} />
+          <Route path="/login" element={<LoginForm onLogin={() => { }} />} />
           <Route path="/signup" element={<SignUp />} />
 
 
@@ -56,35 +53,6 @@ const App = () => {
                 <CafeDetails />
               </ProtectedRoute>
             } />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           <Route path='/drinks'
             element=
@@ -105,9 +73,7 @@ const App = () => {
 
           <Route path='*' element={<h1>404: Page not found</h1>} />
         </Routes>
-        
-          <Footer />
-        
+
       </div>
     </Router>
   )
