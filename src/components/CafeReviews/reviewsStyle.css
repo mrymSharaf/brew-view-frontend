@@ -1,3 +1,5 @@
+/* review froms */
+
 .review-form {
     padding: 30px;
     padding-left: 70px;
@@ -46,5 +48,59 @@
 }
 
 .review-form button:hover {
-    background-color: #9c6644;
+    background-color: #3d3c3c;
+    color: #fff;
+}
+
+/* review lists */
+
+.cafe-reviews {
+    width: 100%;
+    max-width: 800px;
+    margin: 32px auto;
+}
+
+.cafe-reviews h1 {
+    font-size: 29px;
+    margin-bottom: 16px;
+}
+
+.cafe-reviews ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.cafe-reviews li {
+    padding: 15px 25px;
+    border-radius: 16px;
+    border: 1px solid #e1d6d0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cafe-reviews li button {
+    margin-top: 0.8rem;
+    padding: 0.5rem 16px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+    margin-left: 15px;
+}
+
+.cafe-reviews li button:hover {
+    background-color: #c9302c;
+}
+
+.cafe-reviews p {
+    font-size: 16px;
+    color: #777;
 }

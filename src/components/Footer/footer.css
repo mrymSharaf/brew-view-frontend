@@ -2,23 +2,19 @@
 
 footer {
     background-color: #ffffff;
-    color: #654321;
+    color: #000000;
     text-align: center;
-    margin: auto;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
+    padding: 1rem 0;
+    margin-top: auto;
 }
 
 footer p {
     font-size: 1rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.2rem;
     color: #000000;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 600;
 }
