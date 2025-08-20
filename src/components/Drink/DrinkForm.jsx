@@ -67,6 +67,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
                         onChange={handleChange}
                         id='drinkName'
                         name='drinkName'
+                        required
                     />
 
                     <label htmlFor='drinkImage'>Picture</label>
@@ -76,6 +77,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
                         name='drinkImage'
                         type='file'
                         accept="image/*"
+                        required
                     />
 
                     <label htmlFor='price'>Price</label>
@@ -84,6 +86,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
                         onChange={handleChange}
                         id='price'
                         name='price'
+                        required
                     />
 
                     <label htmlFor='description'>Description</label>
