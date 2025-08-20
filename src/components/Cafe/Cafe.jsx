@@ -3,6 +3,8 @@ import CafeForm from './CafeForm'
 import CafeList from './CafeList'
 import { allCafes } from '../../../lib/cafeApi'
 import { jwtDecode } from 'jwt-decode'
+import NavBar from "../../components/NavBar/NavBar"
+import Footer from "../Footer/Footer"
 
 const Cafe = (props) => {
 
@@ -35,6 +37,7 @@ const Cafe = (props) => {
 
     return (
         <>
+         <NavBar /> 
             <h1>Cafes</h1>
             {user.role === 'cafe' && (
                 <button onClick={handleAddCafebtn}>Add Cafe</button>
@@ -50,10 +53,8 @@ const Cafe = (props) => {
                     <CafeList
                         cafes={cafes}
                     />
-
-
             }
-
+            <Footer/>
 
         </>
     )

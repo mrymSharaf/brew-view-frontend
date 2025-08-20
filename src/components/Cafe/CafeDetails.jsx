@@ -8,6 +8,8 @@ import { allReviews } from '../../../lib/reviewApi'
 import CafeForm from './CafeForm'
 import Drink from '../Drink/Drink'
 import { jwtDecode } from 'jwt-decode'
+import NavBar from "../NavBar/NavBar"
+import Footer from "../Footer/Footer"
 
 
 const CafeDetails = () => {
@@ -16,7 +18,7 @@ const CafeDetails = () => {
     const [reviews, setReviews] = useState([])
     const [isFormShown, setIsFormShown] = useState(false)
     let user = null;
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
     if (token) {
         try {
             user = jwtDecode(token);
@@ -45,6 +47,7 @@ const CafeDetails = () => {
 
     return (
         <>
+            <NavBar />
             {
                 cafe
                     ?
@@ -95,6 +98,7 @@ const CafeDetails = () => {
                     <p>Loading...</p>
 
             }
+            <Footer />
         </>
     )
 }

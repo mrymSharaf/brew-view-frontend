@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lexend:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Paytone+One&family=Press+Start+2P&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap');
+
+footer {
+    background-color: #ffffff;
+    color: #654321;
+    text-align: center;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+footer p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: #000000;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-size: 14px;
+    font-weight: 600;
+}

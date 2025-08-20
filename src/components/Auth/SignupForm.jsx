@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router'
 import axios from 'axios'
+import "./auth.css"
 
 function SignUp() {
     const [username, setUsername] = useState('')
@@ -26,11 +28,11 @@ function SignUp() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='auth-forms'>
             <h2>Sign Up</h2>
-
             <input
                 placeholder="Username"
+                type='text'
                 value={username}
                 onChange={event => setUsername(event.target.value)}
             />
@@ -68,6 +70,10 @@ function SignUp() {
             <p style={{ color: "red" }}>{errors}</p>
 
             <button type="submit">Sign Up</button>
+            <p>
+                Have an account?{' '}
+                <Link to="/login">Login</Link>
+            </p>
         </form>
     )
 }
