@@ -6,7 +6,6 @@ import { allCafes } from '../../../lib/cafeApi'
 
 const CafeList = ({ cafes }) => {
 
-    const [errors, setErrors] = useState('')
 
     if (!cafes) return <p>No data yet (login first)</p>
     return (
@@ -19,7 +18,6 @@ const CafeList = ({ cafes }) => {
                     })
                 }
             </ul>
-            <p style={{ color: 'darkred' }}>{errors}</p>
         </>
     )
 }

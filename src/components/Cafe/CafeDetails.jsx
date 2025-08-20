@@ -6,6 +6,7 @@ import CafeReviewForm from '../CafeReviews/CafeReviewForm'
 import CafeReviewList from '../CafeReviews/CafeReviewList'
 import { allReviews } from '../../../lib/reviewApi'
 import CafeForm from './CafeForm'
+import Drink from '../Drink/Drink'
 
 const CafeDetails = () => {
     const params = useParams()
@@ -63,6 +64,7 @@ const CafeDetails = () => {
                                         </>
                                     )
                             }
+                            <Drink />
 
                             <CafeReviewList
                             reviews={reviews}

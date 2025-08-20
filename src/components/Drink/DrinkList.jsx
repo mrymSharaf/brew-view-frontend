@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Link } from 'react-router'
 
 const DrinkList = ({ drinks }) => {
-    const [errors, setErrors] = useState('')
 
     return (
         <>

@@ -1,6 +1,7 @@
 import { createDrink, updateDrink, allDrinks } from '../../../lib/drinkApi'
 import { useState } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router'
 
 const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     const initialState = {
@@ -13,6 +14,8 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     const [formData, setFormData] = useState(
         selectedDrink ? selectedDrink : initialState
     )
+    const params = useParams()
+    console.log(params)
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
@@ -38,7 +41,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
         if (selectedDrink) {
             response = await updateDrink(formData, selectedDrink._id)
         } else {
-            response = await createDrink(formData)
+            response = await createDrink({...formData, cafe: params.id })
         }
 
         if (response.status === 200 || response.status === 201) {

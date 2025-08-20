@@ -6,6 +6,8 @@ function SignUp() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [role, setRole] = useState('user')
+    const [errors, setErrors] = useState('')
+
     const navigate = useNavigate()
 
     const handleSubmit = async event => {
@@ -16,10 +18,10 @@ function SignUp() {
                 password,
                 role
             })
-            alert('User registered, please login')//change
             navigate('/login')
         } catch (err) {
-            alert(err.response?.data?.message || 'Registration failed')//change
+            setErrors('Signup failed. Please try again.')
+
         }
     }
 
@@ -63,6 +65,8 @@ function SignUp() {
                     Cafe
                 </label>
             </div>
+            <p style={{ color: "red" }}>{errors}</p>
+
             <button type="submit">Sign Up</button>
         </form>
     )
