@@ -39,6 +39,8 @@ const App = () => {
         {token ? <LogoutButton onLogout={handleLogout} /> : null}
         <NavBar />
         <Routes>
+          <Route path="/login" element={<LoginForm onLogin={() => { }} />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Home />} />
           <Route path="/cafes"
             element={

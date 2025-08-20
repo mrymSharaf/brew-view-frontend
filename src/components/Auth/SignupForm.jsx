@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router'
 import axios from 'axios'
 
 function SignUp() {
@@ -68,6 +69,10 @@ function SignUp() {
             <p style={{ color: "red" }}>{errors}</p>
 
             <button type="submit">Sign Up</button>
+            <p>
+                Have an account?{' '}
+                <Link to="/login">Login</Link>
+            </p>
         </form>
     )
 }

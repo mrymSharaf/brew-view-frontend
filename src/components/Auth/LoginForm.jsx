@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import axios from 'axios'
 
 function LoginForm({ onLogin }) {
@@ -40,6 +40,11 @@ function LoginForm({ onLogin }) {
             />
             <p style={{ color: "red" }}>{error}</p>
             <button type="submit">Login</button>
+            <p>
+                Don't have an account?{' '}
+                <Link to="/signup">Sign Up</Link>
+            </p>
+
         </form>
     )
 }
