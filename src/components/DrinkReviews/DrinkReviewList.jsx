@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router'
 import DrinkReviewDeleteBtn from './DrinkReviewDeleteBtn'
 import { jwtDecode } from 'jwt-decode'
-
+import '../CafeReviews/reviewsStyle.css'
 
 const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
     const params = useParams()
@@ -23,36 +23,37 @@ const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
 
     return (
         <>
-            <h2>review list</h2>
-            <ul>
+            <div className="cafe-reviews">
+                <h2>Drinks Reviews</h2>
+                <ul>
 
-                {
-                    foundReviews.length
-                        ?
-                        <>
-                            {
-                                foundReviews.map(review => (
-                                    <li key={review._id}>
-                                        <p>{review.user.username}</p>
-                                        <p>{review.content}</p>
-                                        <p>{review.rating}</p>
-                                        {user.id === review.user._id && (
+                    {
+                        foundReviews.length
+                            ?
+                            <>
+                                {
+                                    foundReviews.map(review => (
+                                        <li key={review._id}>
+                                            <p>Done By: {review.user.username}</p>
+                                            <p>Review Content: {review.content}</p>
+                                            <p>Rating: {review.rating} ⭐</p>
+                                            {user.id === review.user._id && (
 
-                                            <DrinkReviewDeleteBtn
-                                                reviewId={review._id}
-                                                getDrinkReviews={getDrinkReviews}
-                                            />
-                                        )}
-                                    </li>
+                                                <DrinkReviewDeleteBtn
+                                                    reviewId={review._id}
+                                                    getDrinkReviews={getDrinkReviews}
+                                                />
+                                            )}
+                                        </li>
 
-                                ))
-                            }
-                        </>
-                        :
-                        <p>no reviews yet</p>
-                }
-            </ul>
-
+                                    ))
+                                }
+                            </>
+                            :
+                            <p>no reviews yet</p>
+                    }
+                </ul>
+            </div>
         </>
     )
 }

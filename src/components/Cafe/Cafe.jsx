@@ -5,6 +5,7 @@ import { allCafes } from '../../../lib/cafeApi'
 import { jwtDecode } from 'jwt-decode'
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../Footer/Footer"
+import './allCafeStyle.css'
 
 const Cafe = (props) => {
 
@@ -40,7 +41,7 @@ const Cafe = (props) => {
          <NavBar /> 
             <h1>Cafes</h1>
             {user.role === 'cafe' && (
-                <button onClick={handleAddCafebtn}>Add Cafe</button>
+                <button className='add-button' onClick={handleAddCafebtn}>{ isFormShown? "Back": "Add Cafe"}</button>
             )}            {
                 isFormShown
                     ?
