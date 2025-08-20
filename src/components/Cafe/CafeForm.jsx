@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createCafe, updateCafe, allCafes } from '../../../lib/cafeApi'
+import "./CafeForm.css"
 
 const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
     const initalState = {
@@ -49,43 +50,55 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
 
 
     return (
-        <>
-            <h2>Cafe form</h2>
-            <form onSubmit={handleSubmit} >
-                <label>Cafe Name:</label>
-                <input
-                    name='cafeName'
-                    id='cafeName'
-                    value={formData.cafeName}
-                    onChange={handleChange}
-                    required
+        <div className="cafe-form-container">
+            <h2 className="cafe-form-title">Cafe Form</h2>
+            <form className="cafe-form" onSubmit={handleSubmit}>
 
-                />
-                <label>Location:</label>
-                <input
-                    name='location'
-                    id='location'
-                    value={formData.location}
-                    onChange={handleChange}
+                <div className="form-group">
+                    <label htmlFor="cafeName">Cafe Name:</label>
+                    <input
+                        className="form-input"
+                        type="text"
+                        name="cafeName"
+                        id="cafeName"
+                        value={formData.cafeName}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
 
-                />
-                <label>Cafe Image:</label>
-                <input
-                    name='cafeImage'
-                    id='cafeImage'
-                    onChange={handleFileChange}
-                    type='file'
-                    accept="image/*"
-                    required
-                />
+                <div className="form-group">
+                    <label htmlFor="location">Location:</label>
+                    <input
+                        className="form-input"
+                        type="text"
+                        name="location"
+                        id="location"
+                        value={formData.location}
+                        onChange={handleChange}
+                    />
+                </div>
 
-                <button type='submit'>
-                    {selectedCafe ? 'Update' : 'Create'}
+                <div className="form-group">
+                    <label htmlFor="cafeImage">Cafe Image:</label>
+                    <input
+                        className="form-file"
+                        type="file"
+                        name="cafeImage"
+                        id="cafeImage"
+                        onChange={handleFileChange}
+                        accept="image/*"
+                        required
+                    />
+                </div>
+
+                <button className="form-btn" type="submit">
+                    {selectedCafe ? "Update" : "Create"}
                 </button>
             </form>
-
-        </>
+        </div>
     )
 }
+
 
 export default CafeForm
