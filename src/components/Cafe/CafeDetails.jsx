@@ -65,7 +65,7 @@ const CafeDetails = () => {
                                     <div>
 
                                         <h1>{cafe.cafeName}</h1>
-                                        <p>Find as in <strong>{cafe.location}</strong></p>
+                                        <p>Find us in <strong>{cafe.location}</strong></p>
 
                                         {user.role === 'cafe' && (
                                             <div className="cafe-buttons">

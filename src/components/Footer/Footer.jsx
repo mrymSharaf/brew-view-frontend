@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <footer>
         <p>
-          Welcome to BrewView. Discover the best drinks and cafes, share your experiences with others.
+          Discover the best drinks and cafes, share your experiences with others.
         </p>
       </footer>
     </>

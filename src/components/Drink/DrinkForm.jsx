@@ -2,6 +2,7 @@ import { createDrink, updateDrink, allDrinks } from '../../../lib/drinkApi'
 import { useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router'
+import '../Cafe/CafeForm.css'
 
 const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     const initialState = {
@@ -40,7 +41,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
         if (selectedDrink) {
             response = await updateDrink(data, selectedDrink._id)
         } else {
-            response = await createDrink({...formData, cafe: params.id })
+            response = await createDrink({ ...formData, cafe: params.id })
         }
 
         if (response.status === 200 || response.status === 201) {
@@ -55,53 +56,70 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
 
 
     return (
-        <>
-            <div>
-                <form onSubmit={handleSubmit}>
+        <div className="cafe-form-container">
+            <h2 className="cafe-form-title">
+                {formData._id ? "Edit Drink" : "Add Drink"}
+            </h2>
 
-                    <h1>{formData._id ? 'Edit Drink' : 'Add Drink'}</h1>
+            <form className="cafe-form" onSubmit={handleSubmit}>
 
-                    <label htmlFor='drinkName'>Drink Name</label>
+                <div className="form-group">
+                    <label htmlFor="drinkName">Drink Name</label>
                     <input
+                        className="form-input"
+                        type="text"
                         value={formData.drinkName}
                         onChange={handleChange}
-                        id='drinkName'
-                        name='drinkName'
+                        id="drinkName"
+                        name="drinkName"
                         required
                     />
+                </div>
 
-                    <label htmlFor='drinkImage'>Picture</label>
+                <div className="form-group">
+                    <label htmlFor="drinkImage">Picture</label>
                     <input
+                        className="form-file"
+                        type="file"
                         onChange={handleFileChange}
-                        id='drinkImage'
-                        name='drinkImage'
-                        type='file'
+                        id="drinkImage"
+                        name="drinkImage"
                         accept="image/*"
                         required
                     />
+                </div>
 
-                    <label htmlFor='price'>Price</label>
+                <div className="form-group">
+                    <label htmlFor="price">Price</label>
                     <input
+                        className="form-input"
+                        type="number"
+                        step="0.01"
                         value={formData.price}
                         onChange={handleChange}
-                        id='price'
-                        name='price'
+                        id="price"
+                        name="price"
                         required
                     />
+                </div>
 
-                    <label htmlFor='description'>Description</label>
+                <div className="form-group">
+                    <label htmlFor="description">Description</label>
                     <input
+                        className="form-input"
+                        rows="3"
                         value={formData.description}
                         onChange={handleChange}
-                        id='description'
-                        name='description'
+                        id="description"
+                        name="description"
                     />
+                </div>
 
-                    <button type="submit"> {formData._id ? 'Save' : 'Create'}</button>
-
-                </form>
-            </div>
-        </>
+                <button className="form-btn" type="submit">
+                    {formData._id ? "Save" : "Create"}
+                </button>
+            </form>
+        </div>
     )
 }
 
