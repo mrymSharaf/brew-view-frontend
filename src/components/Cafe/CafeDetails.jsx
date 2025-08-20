@@ -10,6 +10,7 @@ import Drink from '../Drink/Drink'
 import { jwtDecode } from 'jwt-decode'
 import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
+import './CafeDetailsStyle.css'
 
 
 const CafeDetails = () => {
@@ -48,59 +49,54 @@ const CafeDetails = () => {
     return (
         <>
             <NavBar />
-            {
-                cafe
-                    ?
-                    (
-                        <>
-                            {
-                                isFormShown
-                                    ?
-                                    (
-                                        <CafeForm
-                                            selectedCafe={cafe}
-                                            setCafes={getCafe}
-                                            setIsFormShown={setIsFormShown}
-                                        />
-                                    )
-                                    :
-                                    (
-                                        <>
-                                            <h1>{cafe.cafeName}</h1>
-                                            <img src={cafe.cafeImage} alt={cafe.cafeName} />
-                                            <p>{cafe.location}</p>
-                                            {user.role === 'cafe' && (
-                                                <>
+            <div className="cafe-details-container">
+                {cafe ? (
+                    <>
+                        {isFormShown ? (
+                            <CafeForm
+                                selectedCafe={cafe}
+                                setCafes={getCafe}
+                                setIsFormShown={setIsFormShown}
+                            />
+                        ) : (
+                            <>
+                                <div className='details'>
+                                    <img src={cafe.cafeImage} alt={cafe.cafeName} />
+                                    <div>
 
-                                                    <button onClick={() => setIsFormShown(true)}>
-                                                        Edit
-                                                    </button>
-                                                    <CafeDeleteBtn />
-                                                </>
-                                            )}
-                                        </>
-                                    )
-                            }
-                            <Drink
-                                cafeId={cafe._id}
-                            />
+                                        <h1>{cafe.cafeName}</h1>
+                                        <p>Find as in <strong>{cafe.location}</strong></p>
 
-                            <CafeReviewList
-                                reviews={reviews}
-                                getCafeReviews={getCafeReviews}
-                            />
-                            <CafeReviewForm
-                                getCafeReviews={getCafeReviews}
-                            />
-                        </>
-                    )
-                    :
+                                        {user.role === 'cafe' && (
+                                            <div className="cafe-buttons">
+                                                <button onClick={() => setIsFormShown(true)}>Edit</button>
+                                                <CafeDeleteBtn />
+                                            </div>
+                                        )}
+                                    </div>
+
+                                </div>
+                            </>
+                        )}
+
+                        <div className="cafe-extra">
+                            <Drink cafeId={cafe._id} />
+                            <CafeReviewList reviews={reviews} getCafeReviews={getCafeReviews} />
+                            <div className="review-form-container">
+                                <CafeReviewForm getCafeReviews={getCafeReviews} />
+                            </div>
+                        </div>
+                    </>
+                ) : (
                     <p>Loading...</p>
-
-            }
+                )}
+            </div>
             <Footer />
         </>
     )
+
 }
 
 export default CafeDetails
+
+

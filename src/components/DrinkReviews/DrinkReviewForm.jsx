@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createReview } from '../../../lib/reviewApi'
 import { useParams } from 'react-router'
-
+import '../CafeReviews/reviewsStyle.css'
 const DrinkReviewForm = ({ setReviews, getDrinkReviews }) => {
 
     const initalState = {
@@ -34,29 +34,31 @@ const DrinkReviewForm = ({ setReviews, getDrinkReviews }) => {
 
     return (
         <>
-            <h2>review form</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='content'>Leave a Review: </label>
-                <input
-                    id='content'
-                    name='content'
-                    value={formData.content}
-                    onChange={handleChange}
-                />
+            <div className='review-form'>
 
-                <label htmlFor='rating'>Rating: </label>
-                <input
-                    id='rating'
-                    name='rating'
-                    value={formData.rating}
-                    onChange={handleChange}
-                />
+                <h2>Leave a Review</h2>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor='content'>Content</label>
+                    <input
+                        id='content'
+                        name='content'
+                        value={formData.content}
+                        onChange={handleChange}
+                    />
 
-                <button type='submit'>Submit</button>
-            </form>
+                    <label htmlFor='rating'>Rating </label>
+                    <input
+                        id='rating'
+                        name='rating'
+                        value={formData.rating}
+                        onChange={handleChange}
+                    />
 
-        </>
-    )
+                    <button type='submit'>Submit</button>
+                </form>
+            </div>
+            </>
+            )
 }
 
-export default DrinkReviewForm
+            export default DrinkReviewForm
