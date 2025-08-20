@@ -1,9 +1,21 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import DrinkReviewDeleteBtn from './DrinkReviewDeleteBtn'
+import { jwtDecode } from 'jwt-decode'
+
 
 const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
     const params = useParams()
+
+    let user = null;
+    const token = localStorage.getItem("token");
+    if (token) {
+        try {
+            user = jwtDecode(token)
+        } catch (e) {
+            user = null;
+        }
+    }
 
     const foundReviews = reviews.filter(review => {
         return params.id === review.drink
@@ -23,10 +35,13 @@ const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
                                     <li key={review._id}>
                                         <p>{review.content}</p>
                                         <p>{review.rating}</p>
-                                        <DrinkReviewDeleteBtn
-                                            reviewId={review._id}
-                                            getDrinkReviews={getDrinkReviews}
-                                        />
+                                        {user.id === review.user._id && (
+
+                                            <DrinkReviewDeleteBtn
+                                                reviewId={review._id}
+                                                getDrinkReviews={getDrinkReviews}
+                                            />
+                                        )}
                                     </li>
 
                                 ))

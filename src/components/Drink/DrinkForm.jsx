@@ -1,6 +1,7 @@
 import { createDrink, updateDrink, allDrinks } from '../../../lib/drinkApi'
 import { useState } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router'
 
 const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     const initialState = {
@@ -13,6 +14,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
     const [formData, setFormData] = useState(
         selectedDrink ? selectedDrink : initialState
     )
+    const params = useParams()
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
@@ -38,7 +40,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
         if (selectedDrink) {
             response = await updateDrink(data, selectedDrink._id)
         } else {
-            response = await createDrink(data)
+            response = await createDrink({...formData, cafe: params.id })
         }
 
         if (response.status === 200 || response.status === 201) {
@@ -65,6 +67,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
                         onChange={handleChange}
                         id='drinkName'
                         name='drinkName'
+                        required
                     />
 
                     <label htmlFor='drinkImage'>Picture</label>
@@ -74,6 +77,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
                         name='drinkImage'
                         type='file'
                         accept="image/*"
+                        required
                     />
 
                     <label htmlFor='price'>Price</label>
@@ -82,6 +86,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
                         onChange={handleChange}
                         id='price'
                         name='price'
+                        required
                     />
 
                     <label htmlFor='description'>Description</label>

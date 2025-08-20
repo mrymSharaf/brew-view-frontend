@@ -5,6 +5,7 @@ import axios from 'axios'
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
     const navigate = useNavigate()
 
     const handleSubmit = async event => {
@@ -19,7 +20,7 @@ function LoginForm({ onLogin }) {
             navigate('/')
 
         } catch (err) {
-            alert(err.response?.data?.message || 'Login failed')
+            setError('Login failed')
         }
     }
 
@@ -37,6 +38,7 @@ function LoginForm({ onLogin }) {
                 value={password}
                 onChange={event => setPassword(event.target.value)}
             />
+            <p style={{ color: "red" }}>{error}</p>
             <button type="submit">Login</button>
         </form>
     )

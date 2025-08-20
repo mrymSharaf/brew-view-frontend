@@ -27,7 +27,6 @@ const DrinkReviewForm = ({ setReviews, getDrinkReviews }) => {
 
         }
         setFormData(initalState)
-        console.log('in right function')
         await getDrinkReviews()
 
     }

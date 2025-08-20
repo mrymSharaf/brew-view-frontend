@@ -28,7 +28,7 @@ const Cafe = (props) => {
     return (
         <>
             <h1>Cafes</h1>
-            <button onClick={handleAddCafebtn}>Add Cafe</button>
+            <button onClick={handleAddCafebtn}>{isFormShown? "Back":"Add Cafe"}</button>
             {
                 isFormShown
                     ?
