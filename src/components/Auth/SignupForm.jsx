@@ -28,7 +28,7 @@ function SignUp() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='auth-forms'>
             <h2>Sign Up</h2>
             <input
                 placeholder="Username"

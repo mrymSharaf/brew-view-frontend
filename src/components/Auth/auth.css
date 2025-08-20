@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lexend:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Paytone+One&family=Press+Start+2P&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap');
 
-form {
+.auth-forms {
     background: #f9f9f9;
     padding: 2.5rem;
     border-radius: 1rem;
@@ -12,15 +12,15 @@ form {
 }
 
 
-form h2 {
+.auth-forms h2 {
     margin-bottom: 1.2rem;
     font-size: 1.8rem;
     font-weight: 800;
     color: #000000;
 }
 
-form input[type="text"],
-form input[type="password"] {
+.auth-forms input[type="text"],
+.auth-forms input[type="password"] {
     width: 100%;
     padding: 0.9rem;
     margin: 0.6rem 0;
@@ -31,29 +31,29 @@ form input[type="password"] {
     transition: border 0.3s;
 }
 
-form input[type="text"]:focus,
-form input[type="password"]:focus {
+.auth-forms input[type="text"]:focus,
+.auth-forms input[type="password"]:focus {
     border-color: #654321;
 }
 
-form div {
+.auth-forms div {
     margin: 0.8rem 0;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
 }
 
-form label {
+.auth-forms label {
     font-size: 0.95rem;
     color: #000;
     cursor: pointer;
 }
 
-form input[type="radio"] {
+.auth-forms input[type="radio"] {
     margin-right: 6px;
 }
 
-form button {
+.auth-forms button {
     width: 100%;
     padding: 0.9rem;
     margin-top: 1rem;
@@ -67,22 +67,22 @@ form button {
     transition: background 0.3s;
 }
 
-form button:hover {
+.auth-forms button:hover {
     background: #50301a;
 }
 
-form p {
+.auth-forms p {
     margin-top: 1rem;
     font-size: 0.9rem;
     color: #333;
 }
 
-form a {
+.auth-forms a {
     color: #654321;
     font-weight: 600;
     text-decoration: none;
 }
 
-form a:hover {
+.auth-forms a:hover {
     text-decoration: underline;
 }

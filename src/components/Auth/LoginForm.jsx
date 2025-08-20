@@ -26,7 +26,7 @@ function LoginForm({ onLogin }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='auth-forms'>
             <h2>Login</h2>
             <input
                 placeholder="Username"
