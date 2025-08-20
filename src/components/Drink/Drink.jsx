@@ -37,7 +37,7 @@ const Drink = ({ cafeId }) => {
         <>
             <h1>Drinks</h1>
             {user.role === 'cafe' && (
-                <button onClick={handleAddCafebtn}>Add Cafe</button>
+                <button onClick={handleAddCafebtn}>{isFormShown? "Back":"Add Drink"}</button>
             )}
             {
                 isFormShown
