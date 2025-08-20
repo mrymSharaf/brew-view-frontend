@@ -30,11 +30,9 @@ function SignUp() {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
-            {/* <img src="\images\brewview-logo.png" alt="Brewview Logo" /> */}
             <input
                 placeholder="Username"
                 type='text'
-                id='username'
                 value={username}
                 onChange={event => setUsername(event.target.value)}
             />
@@ -42,7 +40,6 @@ function SignUp() {
             <input
                 placeholder="Password"
                 type="password"
-                id='password'
                 value={password}
                 onChange={event => setPassword(event.target.value)}
             />

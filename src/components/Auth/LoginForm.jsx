@@ -28,7 +28,6 @@ function LoginForm({ onLogin }) {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Login</h2>
-            {/* <img src="\images\brewview-logo.png" alt="Brewview Logo" /> */}
             <input
                 placeholder="Username"
                 value={username}
