@@ -13,20 +13,22 @@ This app was built to connect people with Bahrain’s cafe culture helping peopl
 
 ## 🚀 Getting Started  
 
-- 🔗 **Live App:** [Deployed App Link]()
 - 📂 **Frontend Repository:** [Frontend Repo](https://github.com/mrymSharaf/brew-view-frontend)  
 - 📂 **Backend Repository:** [Backend Repo](https://github.com/mrymSharaf/brew-view-backend)  
-- 📝 **Planning Materials:** [Project Planning Docs / Trello / Wireframes](https://link-to-planning-docs.com)  
+
+---
+
+## ERD
+
+<img width="1613" height="824" alt="Image" src="https://github.com/user-attachments/assets/1b4baac8-1365-414d-b15a-c1dfeba926e9" />
 
 ---
 
 
 ## 🛠 Technologies Used  
-- [![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#) 
-- [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#)
-- [![Express.js](https://img.shields.io/badge/Express.js-%23404d59.svg?logo=express&logoColor=%2361DAFB)](#)  
-- [![NodeJS](https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white)](#)
-- [![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white)](#) 
+- **Frontend:** React, React Router, Axios, CSS
+- **Backend:** Node.js, Express.js, Mongoose  
+- **Database:** MongoDB  
 - **Authentication:** JWT (JSON Web Token)  
 - **Image Uploads:** Cloudinary & Multer  
 - **Version Control:** Git & GitHub  
