@@ -39,7 +39,6 @@ const App = () => {
       <div>
         {token ? <LogoutButton onLogout={handleLogout} /> : null}
         <NavBar />
-        <Footer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cafes"
@@ -88,9 +87,9 @@ const App = () => {
           <Route path='/drinks'
             element=
             {<ProtectedRoute>
-              <Drink 
-              selectedDrink={selectedDrink} 
-              setSelectedDrink={setSelectedDrink}
+              <Drink
+                selectedDrink={selectedDrink}
+                setSelectedDrink={setSelectedDrink}
               />
             </ProtectedRoute>
             } />
@@ -106,6 +105,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path='*' element={<h1>404: Page not found</h1>} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   )
