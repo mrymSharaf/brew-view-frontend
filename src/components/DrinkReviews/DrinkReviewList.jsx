@@ -24,7 +24,7 @@ const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
     return (
         <>
             <div className="cafe-reviews">
-                <h2>review list</h2>
+                <h2>Drinks Reviews</h2>
                 <ul>
 
                     {
