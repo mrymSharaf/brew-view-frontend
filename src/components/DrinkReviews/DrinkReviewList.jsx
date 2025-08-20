@@ -33,6 +33,7 @@ const DrinkReviewList = ({ reviews, getDrinkReviews }) => {
                             {
                                 foundReviews.map(review => (
                                     <li key={review._id}>
+                                        <p>{review.user.username}</p>
                                         <p>{review.content}</p>
                                         <p>{review.rating}</p>
                                         {user.id === review.user._id && (

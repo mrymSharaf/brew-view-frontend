@@ -7,17 +7,26 @@ import DrinkForm from './DrinkForm'
 import DrinkReviewForm from '../DrinkReviews/DrinkReviewForm'
 import { allReviews } from '../../../lib/reviewApi'
 import DrinkReviewList from '../DrinkReviews/DrinkReviewList'
+import { jwtDecode } from 'jwt-decode'
 
 const DrinkDetails = () => {
     const { id } = useParams()
     const [drink, setDrink] = useState(null)
     const [isFormShown, setIsFormShown] = useState(false)
     const [reviews, setReviews] = useState([])
-
+    let user = null;
+    const token = localStorage.getItem("token");
+    if (token) {
+        try {
+            user = jwtDecode(token);
+        } catch (e) {
+            user = null;
+        }
+    }
     const getDrink = async () => {
         try {
             const foundDrink = await drinkDetials(id)
-            setDrink(foundDrink.data.drinkDetails) 
+            setDrink(foundDrink.data.drinkDetails)
         } catch (error) {
             console.error('Error getting drink:', error)
         }
@@ -58,11 +67,14 @@ const DrinkDetails = () => {
                                             <img src={drink.drinkImage} alt={drink.drinkName} />
                                             <p>{drink.description}</p>
                                             <p>{drink.price} BHD</p>
-
-                                            <button onClick={() => setIsFormShown(true)}>
-                                                Edit
-                                            </button>
-                                            <DrinkDeleteBtn/>
+                                            {user.role === 'cafe' && (
+                                                <>
+                                                    <button onClick={() => setIsFormShown(true)}>
+                                                        Edit
+                                                    </button>
+                                                    <DrinkDeleteBtn />
+                                                </>
+                                            )}
                                         </>
                                     )
 
@@ -71,15 +83,15 @@ const DrinkDetails = () => {
                     )
                     : <p>Loading...</p>
             }
-            <DrinkReviewList 
-            getDrinkReviews={getDrinkReviews}
-            reviews={reviews}
+            <DrinkReviewList
+                getDrinkReviews={getDrinkReviews}
+                reviews={reviews}
             />
 
             <DrinkReviewForm
-            getDrinkReviews={getDrinkReviews}
-             />
-             
+                getDrinkReviews={getDrinkReviews}
+            />
+
         </>
     )
 }
