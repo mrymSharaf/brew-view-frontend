@@ -36,7 +36,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        {token ? <LogoutButton onLogout={handleLogout} /> : null}
+        {/* {token ? <LogoutButton onLogout={handleLogout} /> : null} */}
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
