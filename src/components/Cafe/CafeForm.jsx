@@ -58,6 +58,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
                     id='cafeName'
                     value={formData.cafeName}
                     onChange={handleChange}
+                    required
 
                 />
                 <label>Location:</label>
@@ -75,6 +76,7 @@ const CafeForm = ({ selectedCafe, setCafes, setIsFormShown }) => {
                     onChange={handleFileChange}
                     type='file'
                     accept="image/*"
+                    required
                 />
 
                 <button type='submit'>
