@@ -22,7 +22,7 @@ const CafeReviewList = ({ reviews, getCafeReviews }) => {
 
     return (
         <>
-            <h2>review list</h2>
+            <h1>Cafe Reviews</h1>
             <ul>
 
                 {

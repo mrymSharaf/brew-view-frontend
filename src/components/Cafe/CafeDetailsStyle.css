@@ -1,0 +1,80 @@
+.cafe-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    min-height: 100vh;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 50px;
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+.details img {
+    width: 280px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 30px;
+}
+
+.details h1 {
+    font-size: 32px;
+    margin: 0 0 8px 20px;
+}
+
+.details p {
+    color: #858181;
+    margin-bottom: 25px;
+}
+
+.cafe-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+
+.cafe-buttons button {
+    padding: 12px 22px;
+    background-color: white;
+    color: #010101;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+    border: 1px solid black;
+
+}
+
+.cafe-buttons button:hover {
+    background-color: #3d3c3c;
+    color:#fff;
+}
+
+.cafe-extra ul {
+    list-style-type: none;
+}
+
+.review-form-container {
+    padding: 24px;
+    border: 1px solid #e1d6d0;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.cafe-details-container p {
+    font-size: 19px;
+    text-align: center;
+    margin-top: 32px;
+}
