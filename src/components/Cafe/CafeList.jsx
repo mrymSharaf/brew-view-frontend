@@ -14,7 +14,12 @@ const CafeList = ({ cafes }) => {
             <ul>
                 {
                     cafes.map(cafe => {
-                        return <li key={cafe._id}><Link to={`/cafes/${cafe._id}`}>{cafe.cafeName}</Link></li>
+                        return <li key={cafe._id}>
+                            <Link to={`/cafes/${cafe._id}`}>
+                            <img src={cafe.cafeImage} alt={cafe.cafeImagePublicId} />
+                            <p>{cafe.cafeName}</p>
+                            </Link>
+                            </li>
                     })
                 }
             </ul>
