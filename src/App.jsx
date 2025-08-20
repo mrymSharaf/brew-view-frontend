@@ -37,10 +37,17 @@ const App = () => {
     <Router>
       <div>
         {token ? <LogoutButton onLogout={handleLogout} /> : null}
+
+        
         <NavBar />
+        
+        
         <Routes>
-          <Route path="/login" element={<LoginForm onLogin={() => { }} />} />
+
+          <Route path="/login" element={<LoginForm onLogin={() => {}} />} />
           <Route path="/signup" element={<SignUp />} />
+
+
           <Route path="/" element={<Home />} />
           <Route path="/cafes"
             element={
@@ -102,11 +109,11 @@ const App = () => {
               </ProtectedRoute>
             } />
 
-          <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
-          <Route path="/signup" element={<SignUp />} />
           <Route path='*' element={<h1>404: Page not found</h1>} />
         </Routes>
-        <Footer />
+        
+          <Footer />
+        
       </div>
     </Router>
   )

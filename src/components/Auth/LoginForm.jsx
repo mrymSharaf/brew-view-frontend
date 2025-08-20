@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import axios from 'axios'
+import "./auth.css"
 
 function LoginForm({ onLogin }) {
     const [username, setUsername] = useState('')
@@ -27,9 +28,11 @@ function LoginForm({ onLogin }) {
     return (
         <form onSubmit={handleSubmit}>
             <h2>Login</h2>
+            {/* <img src="\images\brewview-logo.png" alt="Brewview Logo" /> */}
             <input
                 placeholder="Username"
                 value={username}
+                type='text'
                 onChange={event => setUsername(event.target.value)}
             />
             <input

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lexend:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Paytone+One&family=Press+Start+2P&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+   font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+form {
+    background: #f9f9f9;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+
+form h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #000000;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 0.9rem;
+    margin: 0.6rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #654321;
+}
+
+form div {
+    margin: 0.8rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+form label {
+    font-size: 0.95rem;
+    color: #000;
+    cursor: pointer;
+}
+
+form input[type="radio"] {
+    margin-right: 6px;
+}
+
+form button {
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 1rem;
+    background: #654321;
+    color: #fff;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #50301a;
+}
+
+form p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+form a {
+    color: #654321;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
