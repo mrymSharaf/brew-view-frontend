@@ -1,0 +1,50 @@
+.review-form {
+    padding: 30px;
+    padding-left: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form h2 {
+
+    padding-bottom: 20px;
+
+}
+
+.review-form form {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+.review-form label {
+    margin-top: 10px;
+}
+
+.review-form input {
+    padding: 0.8rem;
+    border: 1px solid black;
+    border-radius: 40px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.review-form input:focus {
+    box-shadow: 0px 0px 5px rgba(123, 75, 42, 0.4);
+}
+
+.review-form button {
+    padding: 12px 22px;
+    background-color: white;
+    color: #010101;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid black;
+}
+
+.review-form button:hover {
+    background-color: #9c6644;
+}

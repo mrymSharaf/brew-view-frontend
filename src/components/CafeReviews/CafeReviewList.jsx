@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router'
 import CafeReviewDeleteBtn from './CafeReviewDeleteBtn'
 import { jwtDecode } from 'jwt-decode'
+import './reviewsStyle.css'
 
 const CafeReviewList = ({ reviews, getCafeReviews }) => {
     const params = useParams()

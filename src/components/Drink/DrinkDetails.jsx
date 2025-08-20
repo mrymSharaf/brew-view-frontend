@@ -10,6 +10,7 @@ import DrinkReviewList from '../DrinkReviews/DrinkReviewList'
 import { jwtDecode } from 'jwt-decode'
 import NavBar from "../NavBar/NavBar"
 import Footer from "../Footer/Footer"
+import '../Cafe/CafeDetailsStyle.css'
 
 const DrinkDetails = () => {
     const { id } = useParams()
@@ -45,57 +46,68 @@ const DrinkDetails = () => {
 
     return (
         <>
-        <NavBar/>
-            {
-                drink
-                    ? (
-                        <>
-                            {
-                                isFormShown
-                                    ?
-                                    (
-                                        <DrinkForm
-                                            selectedDrink={drink}
-                                            setDrinks={getDrink}
-                                            setIsFormShown={setIsFormShown}
-                                        />
-                                    )
+            <NavBar />
+            <div className='cafe-details-container'>
+                {
+                    drink
+                        ? (
+                            <>
+                                {
+                                    isFormShown
+                                        ?
+                                        (
+                                            <DrinkForm
+                                                selectedDrink={drink}
+                                                setDrinks={getDrink}
+                                                setIsFormShown={setIsFormShown}
+                                            />
+                                        )
 
-                                    :
+                                        :
 
-                                    (
+                                        (
 
-                                        <>
-                                            <h1>{drink.drinkName}</h1>
-                                            <img src={drink.drinkImage} alt={drink.drinkName} />
-                                            <p>{drink.description}</p>
-                                            <p>{drink.price} BHD</p>
-                                            {user.role === 'cafe' && (
-                                                <>
-                                                    <button onClick={() => setIsFormShown(true)}>
-                                                        Edit
-                                                    </button>
-                                                    <DrinkDeleteBtn />
-                                                </>
-                                            )}
-                                        </>
-                                    )
+                                            <>
+                                                <div className='details'>
+                                                    <img src={drink.drinkImage} alt={drink.drinkName} />
+                                                    <div>
+                                                        <h1>{drink.drinkName}</h1>
+                                                        <p>Price: {drink.price} BHD</p>
+                                                        <p>Description: {drink.description}</p>
 
-                            }
-                        </>
-                    )
-                    : <p>Loading...</p>
-            }
-            <DrinkReviewList
-                getDrinkReviews={getDrinkReviews}
-                reviews={reviews}
-            />
 
-            <DrinkReviewForm
-                getDrinkReviews={getDrinkReviews}
-            />
+                                                        {user.role === 'cafe' && (
+                                                            <div className="cafe-buttons">
+                                                                <button onClick={() => setIsFormShown(true)}>
+                                                                    Edit
+                                                                </button>
+                                                                <DrinkDeleteBtn />
 
-            <Footer/>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </>
+                                        )
+
+                                }
+                            </>
+                        )
+                        : <p>Loading...</p>
+                }
+                <DrinkReviewList
+                    getDrinkReviews={getDrinkReviews}
+                    reviews={reviews}
+                />
+                <div className="review-form-container">
+
+                    <DrinkReviewForm
+                        getDrinkReviews={getDrinkReviews}
+                    />
+                </div>
+            </div>
+
+            <Footer />
         </>
     )
 }
