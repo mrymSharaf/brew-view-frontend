@@ -5,7 +5,6 @@ footer {
     color: #654321;
     text-align: center;
     margin: auto;
-    font-family: "Nunito Sans", sans-serif;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -22,11 +21,4 @@ footer p {
     line-height: 1.6;
     font-size: 14px;
     font-weight: 600;
-}
-
-.copy-rights {
-    font-size: 0.9rem;
-    color: #000000;
-    font-weight: 600;
-    font-size: 14px;
 }

@@ -8,7 +8,6 @@ const Footer = () => {
         <p>
           Welcome to BrewView. Discover the best drinks and cafes, share your experiences with others.
         </p>
-        <p className='copy-rights'>Copyright © 2025 All Rights Reserved</p>
       </footer>
     </>
   )
