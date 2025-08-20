@@ -1,59 +1,61 @@
 .cafe-form-container {
-  max-width: 800px;  
-  margin: 60px auto;  
-  padding: 1.2rem 1.5rem; 
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    max-width: 1090px;
+    margin: 60px auto;
+    padding: 1.2rem 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .cafe-form-title {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #333;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
 }
 
 .cafe-form .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem; 
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 .cafe-form label {
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: #444;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #444;
 }
 
 .form-input,
 .form-file {
-  padding: 0.6rem 0.9rem; 
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.2s ease;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    font-size: 1rem;
+    transition: border 0.2s ease;
 }
 
 .form-input:focus,
 .form-file:focus {
-  outline: none;
-  border-color: #7f7d7d;
+    outline: none;
+    border-color: #7f7d7d;
 }
 
 .form-btn {
-  width: 100%;
-  padding: 0.8rem; 
-  background: #333;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: white;
+    color: #010101;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
 }
 
 .form-btn:hover {
-  background: #7f7d7d;
+    background-color: #3d3c3c;
+    color: #fff;
 }

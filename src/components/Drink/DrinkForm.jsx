@@ -105,7 +105,7 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
 
                 <div className="form-group">
                     <label htmlFor="description">Description</label>
-                    <textarea
+                    <input
                         className="form-input"
                         rows="3"
                         value={formData.description}
