@@ -31,7 +31,6 @@ const App = () => {
 
   if (token) {
     const decodedToken = jwtDecode(token)
-    // console.log(decodedToken)
   }
 
   return (

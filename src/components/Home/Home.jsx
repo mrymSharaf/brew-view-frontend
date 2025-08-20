@@ -17,7 +17,6 @@ const Home = () => {
 
   const getAllReviews = async () => {
     const response = await allReviews()
-    console.log(response.data)
     setReviews(response.data)
   }
   useEffect(() => {
@@ -27,7 +26,6 @@ const Home = () => {
 
   const foundReviews = reviews.filter((review) => review.user._id === user.id)
 
-console.log(foundReviews)
   return (
     <>
       <h1>Welcome To Brewviews</h1>
