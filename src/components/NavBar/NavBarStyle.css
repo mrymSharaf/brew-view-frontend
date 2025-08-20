@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+.navbar {
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background: #fff;
+    /* border-bottom: 1px solid #e5e5e5; */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left ul,
+.nav-right ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-left a,
+.nav-right a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-logo img {
+    height: 30px;
+    width: auto;
+    display: block;
+    margin-right: 42px;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+.navbar ul li a,
+.navbar ul li button {
+    background: none;
+    border: none;
+    font: inherit;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.navbar ul li a:hover,
+.navbar ul li button:hover {
+    color: #7f7d7d;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+}
