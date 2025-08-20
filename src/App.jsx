@@ -1,5 +1,4 @@
 import { jwtDecode } from 'jwt-decode'
-
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router"
 import NavBar from "./components/NavBar/NavBar"
@@ -36,10 +35,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        {/* {token ? <LogoutButton onLogout={handleLogout} /> : null} */}
-        <NavBar />
-        {token ? <LogoutButton onLogout={handleLogout} /> : null}
-        
+        <NavBar /> 
         <Routes>
 
           <Route path="/login" element={<LoginForm onLogin={() => {}} />} />
