@@ -37,10 +37,6 @@ const App = () => {
     <Router>
       <div>
         {token ? <LogoutButton onLogout={handleLogout} /> : null}
-
-        
-        <NavBar />
-        
         
         <Routes>
 
