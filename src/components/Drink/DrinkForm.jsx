@@ -15,7 +15,6 @@ const DrinkForm = ({ selectedDrink, setDrinks, setIsFormShown }) => {
         selectedDrink ? selectedDrink : initialState
     )
     const params = useParams()
-    console.log(params)
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })

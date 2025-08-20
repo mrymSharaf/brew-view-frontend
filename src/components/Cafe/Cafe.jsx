@@ -23,7 +23,6 @@ const Cafe = (props) => {
 
     const getAllCafes = async () => {
         const response = await allCafes()
-        console.log(response)
         setCafes(response.data)
     }
 

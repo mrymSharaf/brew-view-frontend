@@ -21,7 +21,6 @@ const Drink = ({ cafeId }) => {
 
     const getAllDrinks = async () => {
         const response = await allDrinks()
-        console.log(response)
         setDrinks(response.data)
     }
 
