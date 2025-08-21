@@ -8,7 +8,7 @@ const DrinkDeleteBtn = () => {
     const navigate = useNavigate()
     const handleDelete = async () => {
         await deleteDrink(id)
-        navigate('/drinks')
+        navigate('/cafes')
 
     }
 
